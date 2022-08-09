@@ -1,0 +1,39 @@
+@import "../../style/colors";
+
+.menu {
+  display: grid !important;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  background: transparent !important;
+  color: var(--palette-text-primary);
+  padding: 10px 0px 0px 0px;
+  border-radius: 10px;
+
+  li {
+    display: inline-block;
+    background: transparent !important;
+    text-align: center;
+    color: var(--palette-text-primary);
+    cursor: pointer;
+    border: none !important;
+  }
+}
+
+hr {
+  height: 3px !important;
+  width: 100%;
+  margin-bottom: -2px !important;
+  margin-top: 0px !important;
+  background-color: var(--palette-action-active) !important;
+  border: none;
+  opacity: 1 !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.text-active {
+  color: var(--palette-text-primary) !important;
+}
+
+.text-pasif {
+  color: var(--palette-text-secondary) !important;
+}

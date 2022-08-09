@@ -1,0 +1,195 @@
+@import "./colors";
+
+/*Devredışı bırakıldı.*/
+/* width */
+::-webkit-scrollbar {
+  //width: 10px;
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  //background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  //background: #888;
+
+  /* Handle on hover */
+  &:hover {
+    //background: #555;
+  }
+}
+
+body {
+  background-color: var(--palette-background-page) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+button {
+  color: var(--palette-text-primary) !important;
+}
+
+.user_name {
+  font-weight: normal;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.box-shadow-none {
+  box-shadow: none !important;
+}
+
+.btn-success {
+  background-color: $success !important;
+  &:hover {
+    background-color: $success !important;
+  }
+}
+
+.pr-0 {
+  padding-right: 0 !important;
+}
+
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.p-12px {
+  padding: 12px !important;
+}
+
+.fs-13 {
+  font-size: 13px !important;
+}
+.fs-14 {
+  font-size: 14px !important;
+}
+.fs-17 {
+  font-size: 17px !important;
+}
+.fs-24 {
+  font-size: 24px !important;
+}
+.fw-600 {
+  font-weight: 600 !important;
+}
+
+.flex-d-col {
+  flex-direction: column !important;
+}
+
+.c-pointer {
+  cursor: pointer !important;
+}
+
+@keyframes next-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes prev-spin {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes likeBtnColor {
+  0% {
+    fill: red;
+    font-size: 25;
+  }
+  20% {
+    fill: orange;
+  }
+  40% {
+    fill: green;
+  }
+  60% {
+    fill: coral;
+  }
+  80% {
+    fill: blue;
+  }
+  100% {
+    font-size: 25;
+    fill: red;
+  }
+}
+
+.add-post-text-area {
+  font-size: 24px;
+  padding: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+  resize: none;
+}
+.btn-close {
+  position: absolute;
+  right: 25px;
+}
+
+.card {
+  background-color: var(--palette-background-card) !important;
+  color: var(--palette-text-primary) !important;
+}
+.card-header {
+  background-color: var(--palette-background-card) !important;
+  color: var(--palette-text-primary) !important;
+}
+.card-body {
+  background-color: var(--palette-background-card) !important;
+  color: var(--palette-text-primary) !important;
+}
+.card-footer {
+  background-color: var(--palette-background-card) !important;
+  color: var(--palette-text-primary) !important;
+}
+.modal-content {
+  border-radius: 8px !important;
+  overflow: hidden;
+  background-color: var(--palette-background-card) !important;
+  color: var(--palette-text-primary) !important;
+}
+.modal-body textarea {
+  background: transparent !important;
+  color: var(--palette-text-primary) !important;
+}
+
+.theme-icons-color {
+  color: var(--palette-text-primary) !important;
+}
+
+.add-photo-video,
+.add-feeling {
+  color: var(--palette-text-primary) !important;
+  &:hover {
+    background-color: var(--palette-action-hover) !important;
+  }
+}
+
+.br-8 {
+  border-radius: 8px !important;
+}

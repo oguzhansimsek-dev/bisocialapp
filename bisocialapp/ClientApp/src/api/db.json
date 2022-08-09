@@ -1,0 +1,89 @@
+{
+  "login": {
+    "id": 1,
+    "username": "eiqer",
+    "firstname": "Oğuzhan",
+    "lastname": "Şimşek",
+    "email": "oguzhansimseksosyal@gmail.com",
+    "password": "Oguz123",
+    "bio": "Selam ben Oğuzhan ",
+    "userPhoto": "https://github.com/oguzhansimsek-dev.png"
+  },
+  "tokens": []
+  ,
+  "users": [
+    {
+      "id": 1,
+      "username": "eiqer",
+      "firstname": "Oğuzhan",
+      "lastname": "Şimşek",
+      "email": "oguzhansimseksosyal@gmail.com",
+      "password": "Oguz123",
+      "bio": "Selam ben Oğuzhan",
+      "userPhoto": "https://github.com/oguzhansimsek-dev.png"
+    },
+    {
+      "id": 2,
+      "username": "frknmtl",
+      "firstname": "Furkan",
+      "lastname": "Mutlu",
+      "email": "furkanmutlu@gmail.com",
+      "password": "Furkan123",
+      "bio": "Selam ben Furkan",
+      "userPhoto": "https://scontent.fesb7-1.fna.fbcdn.net/v/t39.30808-1/271759736_10224134597784107_6756898134781887319_n.jpg?stp=dst-jpg_p480x480&_nc_cat=105&ccb=1-5&_nc_sid=7206a8&_nc_ohc=f0AIiBHH8FcAX9ClNCF&_nc_ht=scontent.fesb7-1.fna&oh=00_AT_N8eIKaMDOslWKOsX0cNolUrgiVjiCctqKK_NcH8TPYw&oe=6234EF29"
+    },
+    {
+      "id": 3,
+      "username": "mmtyzc",
+      "firstname": "Mehmet",
+      "lastname": "Yazıcı",
+      "email": "mehmetyazici@gmail.com",
+      "password": "Mehmet123",
+      "bio": "Selam ben Mehmet",
+      "userPhoto": "https://scontent.fesb7-1.fna.fbcdn.net/v/t39.30808-1/271759736_10224134597784107_6756898134781887319_n.jpg?stp=dst-jpg_p480x480&_nc_cat=105&ccb=1-5&_nc_sid=7206a8&_nc_ohc=f0AIiBHH8FcAX9ClNCF&_nc_ht=scontent.fesb7-1.fna&oh=00_AT_N8eIKaMDOslWKOsX0cNolUrgiVjiCctqKK_NcH8TPYw&oe=6234EF29"
+    },
+    {
+      "id": 1,
+      "username": "eiqer",
+      "firstname": "Batuhan",
+      "lastname": "Arslan",
+      "email": "batuhanarslan@gmail.com",
+      "password": "batu123",
+      "bio": "Selam ben Batu",
+      "userPhoto": "https://github.com/arslanbatu97.png"
+    }
+  ],
+  "posts": [
+    {
+      "id": 22,
+      "postIext": "Ali bana bak",
+      "postImg": "https://picsum.photos/256/186",
+      "userId": 3,
+      "like": 11,"comment": [
+        {
+          "userId": 1,
+          "text": "oo güzel içerik!!"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "postIext": "Ali ata bak",
+      "postImg": "",
+      "userId": 1,
+      "like": 13,"comment": [
+        {
+          "userId": 1,
+          "text": "oo güzel içerik!!"
+        }
+      ]
+    }
+  ],
+  "user_followers":[
+    {"follower_id": 1, "followed_id": 2},
+    {"follower_id": 1, "followed_id": 3},
+    {"follower_id": 2, "followed_id": 1},
+    {"follower_id": 2, "followed_id": 3},
+    {"follower_id": 3, "followed_id": 1}
+  ]
+}

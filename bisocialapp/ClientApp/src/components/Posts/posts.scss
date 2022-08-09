@@ -1,0 +1,14 @@
+@import "../../style/colors";
+
+.options {
+  text-align: center;
+  background-color: var(--palette-background-card);
+  border-radius: 8px;
+  .option-item {
+    background-color: transparent;
+    color: var(--palette-text-primary);
+    cursor: pointer;
+    padding: 12px;
+    font-size: 14px;
+  }
+}
