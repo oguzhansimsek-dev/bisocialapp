@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import friendListReducer from "./friendListReducer";
-import postListReducer from "./postsReducer";
+import { postListReducer, getPostByPostId } from "./postsReducer";
 import loginReducer from "./loginReducer";
 import tabsReducer from "./tabsReducer";
 import addPostReducer from "./addPostReducer";
@@ -27,6 +27,7 @@ const rootReducer = combineReducers({
   selectMenuItem,
   followModalShow,
   getFollowers,
+  getPostByPostId,
 });
 
 export default rootReducer;

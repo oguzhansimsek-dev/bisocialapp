@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace bisocialapp.Data
+namespace bisocialapp.Models
 {
     public class User
     {

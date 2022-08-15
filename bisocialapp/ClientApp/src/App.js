@@ -18,7 +18,7 @@ import Message from "./pages/Messages/Message";
 
 // * Components
 import SettingModal from "./components/SettingsModal/SettingModal";
-import PostModal from "./components/Posts/PostModal";
+import PostDetailModal from "./components/Posts/PostDetailModal";
 import AddPostModal from "./components/Posts/AddPostModal";
 import Signup from "./pages/Signup";
 import FollowModal from "./components/Profile/FollowModal";
@@ -70,7 +70,7 @@ function App(props) {
         }}
       />
 
-      <PostModal
+      <PostDetailModal
         show={props.postModal}
         onHide={() => {
           props.actions.postModalShow(false);

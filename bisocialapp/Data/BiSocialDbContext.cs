@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using bisocialapp.Models;
 
 namespace bisocialapp.Data
 {
@@ -11,6 +12,9 @@ namespace bisocialapp.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<SpPost> SpPosts { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<PostLike> PostLikes { get; set; }
 
         // public DbSet<PostDetail> PostDetails { get; set; }
     }

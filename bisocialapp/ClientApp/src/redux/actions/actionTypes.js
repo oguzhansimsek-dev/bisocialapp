@@ -3,6 +3,7 @@ export const SIGNIN_ACC_INFO = "SIGNIN_ACC_INFO";
 
 // * POST ACTIONS
 export const GET_POSTS = "GET_POSTS";
+export const GET_POST_DETAIL = "GET_POST_DETAIL";
 export const LIKE_TO_POST = "LIKE_POST";
 export const ADD_COMMENT_TO_POST = "COMMENT_POST";
 

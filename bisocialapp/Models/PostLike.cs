@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace bisocialapp.Models
 {
-    public class Photo
+    public class PostLike
     {
         [Key]
-        public int phId { get; set; }
+        public int pLikeId { get; set; }
 
-        public string phUrl { get; set; }
+        public int userId { get; set; }
         public int postId { get; set; }
-        public DateTime loadDate { get; set; }
+        public DateTime likeDate { get; set; }
     }
 }

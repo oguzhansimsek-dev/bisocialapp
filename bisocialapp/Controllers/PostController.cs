@@ -28,7 +28,10 @@ namespace bisocialapp.Controllers
             {
                 List<Post>? posts = _dbContext.Posts.Take(10).ToList(); //Posts tablosundan veri çekiliyor.
                 List<Photo>? photos = _dbContext.Photos.ToList(); //Photos tablosundan veri çekiliyor.
-                //List<User> users = _dbContext.Users.ToList(); //Users tablosundan veri çekiliyor.
+                List<Comment>? comments = _dbContext.Comments.ToList(); //Comments tablosundan veri.
+                List<PostLike>? likes = _dbContext.PostLikes.ToList(); //PostLikes tablosundan veri çekiliyor.
+
+                //List<PostLike>? likes = _dbContext.PostLikes.ToList(); //Beğeni tablosundan veri çekiliyor.
 
                 if (posts.Count() == 0)
                 {
@@ -37,9 +40,9 @@ namespace bisocialapp.Controllers
 
                 return Ok(posts);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(500, "An error has occurred ");
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -49,6 +52,9 @@ namespace bisocialapp.Controllers
             try
             {
                 var post = _dbContext.Posts.Where(p => p.pId == postId);
+                List<Photo>? photos = _dbContext.Photos.ToList(); //Photos tablosundan veri çekiliyor.
+                List<Comment>? comments = _dbContext.Comments.ToList(); //Comments tablosundan veri.
+                List<PostLike>? likes = _dbContext.PostLikes.ToList(); //PostLikes tablosundan veri çekiliyor.
 
                 return Ok(post);
             }
@@ -58,10 +64,32 @@ namespace bisocialapp.Controllers
             }
         }
 
-        [HttpGet("SpGetPosts")]
-        public IActionResult GetSpPosts()
+        [HttpGet("GetComment")]
+        public IActionResult GetComment()
         {
-            return Ok();
+            try
+            {
+                List<Comment> comments = _dbContext.Comments.ToList();
+                return Ok(comments);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpGet("GetLikes")]
+        public IActionResult GetLikes()
+        {
+            try
+            {
+                List<PostLike> likes = _dbContext.PostLikes.ToList();
+                return Ok(likes);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
         }
     }
 }

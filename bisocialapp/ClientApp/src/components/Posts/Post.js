@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as functionsAction from "../../redux/actions/functionsAction";
-import { Card, CardImg, CardBody, CardFooter, Button } from "reactstrap";
+import { getPostByPostId } from "../../redux/actions/postActions";
+import { Card, CardBody, CardFooter, Button } from "reactstrap";
 import {
   UserThumbnail,
   PostHeader,
@@ -15,7 +16,6 @@ import {
 import { OutlineHeart, FillHeart, CommentIcon } from "../root/Icons";
 import PostOptions from "./PostOptions";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Post = (props) => {
   const profilePath = "/bi/";
@@ -46,17 +46,25 @@ const Post = (props) => {
         </PostHeader>
         {/*<CardSubtitle className="mb-2 text-muted" tag="h6">Konum</CardSubtitle>  ----- POST IMAGES */}
 
-        <Carousel autoPlay={false} showThumbs={false} swipeable={true}>
-          {props.post.photos == null
-            ? ""
-            : props.post.photos.map((photo) => {
-                return (
-                  <div>
-                    <img src={photo.phUrl} key={photo.phId} alt="resim" />
-                  </div>
-                );
-              })}
-        </Carousel>
+        {props.post.pType === 1 ? (
+          <Carousel autoPlay={false} showThumbs={false} swipeable={true}>
+            {props.post.photos == null
+              ? ""
+              : props.post.photos.map((photo) => {
+                  return (
+                    <div key={photo.phId}>
+                      {photo.phUrl != null && photo.phUrl != "" ? (
+                        <img src={photo.phUrl} alt="resim" />
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  );
+                })}
+          </Carousel>
+        ) : (
+          ""
+        )}
 
         {/*showPostPhotos(props.post.photos)*/}
         <CardBody>
@@ -85,12 +93,18 @@ const Post = (props) => {
             <Button
               onClick={() => {
                 props.actions.postModalShow(true);
+                props.actions.getPostDetail(props.post.pId);
+                //console.log(props.post.pId);
               }}
               className="p-0 text-dark bg-transparent mr-2 border-0 box-shadow-none"
             >
               <CommentIcon></CommentIcon>
             </Button>
-            <PostText>{props.post.like} kişi beğendi.</PostText>
+            <PostText>
+              {props.post.likes != null
+                ? props.post.likes.length + " " + "kişi beğendi."
+                : "ilk beğenen sen ol."}
+            </PostText>
           </PostButtons>
         </CardBody>
         <CardFooter>Yorum Alanı</CardFooter>
@@ -112,6 +126,7 @@ function mapDispatchToProps(dispatch) {
         functionsAction.postModalShow,
         dispatch
       ),
+      getPostDetail: bindActionCreators(getPostByPostId, dispatch),
     },
   };
 }

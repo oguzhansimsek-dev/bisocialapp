@@ -2,6 +2,8 @@
 export default {
   login: {},
   posts: [],
+  post: {},
+
   createdPost: {
     postId: 1,
     postImg: "resim konumu",

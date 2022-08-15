@@ -6,6 +6,7 @@ import App from "./App";
 import "./style/style.scss";
 import "reactjs-popup/dist/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import configureStore from "./redux/reducers/configureStore";
 import { Provider } from "react-redux";
 
