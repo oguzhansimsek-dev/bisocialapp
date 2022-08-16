@@ -15,5 +15,7 @@ namespace bisocialapp.Models
         public DateTime commentDate { get; set; }
 
         public bool isDeleted { get; set; }
+
+        public User user { get; set; }
     }
 }

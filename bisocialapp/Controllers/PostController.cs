@@ -84,20 +84,6 @@ namespace bisocialapp.Controllers
             }
         }
 
-        [HttpGet("GetComment")]
-        public IActionResult GetComment()
-        {
-            try
-            {
-                List<Comment> comments = _dbContext.Comments.ToList();
-                return Ok(comments);
-            }
-            catch (Exception e)
-            {
-                return StatusCode(500, e.Message);
-            }
-        }
-
         [HttpGet("GetLikes")]
         public IActionResult GetLikes()
         {
@@ -105,30 +91,6 @@ namespace bisocialapp.Controllers
             {
                 List<PostLike> likes = _dbContext.PostLikes.ToList();
                 return Ok(likes);
-            }
-            catch (Exception e)
-            {
-                return StatusCode(500, e.Message);
-            }
-        }
-
-        [HttpPost("Comment")]
-        public IActionResult Comment([FromBody] Comment comment)
-        {
-            Comment dbComment = new Comment();
-
-            try
-            {
-                dbComment.userId = comment.userId;
-                dbComment.postId = comment.postId;
-                dbComment.comment = comment.comment;
-                dbComment.commentDate = DateTime.Now;
-                dbComment.isDeleted = false;
-
-                _dbContext.Comments.Add(dbComment);
-                _dbContext.SaveChanges();
-                //return StatusCode(200, "Comment added successfully");
-                return Ok(dbComment);
             }
             catch (Exception e)
             {
