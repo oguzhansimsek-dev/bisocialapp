@@ -30,15 +30,15 @@ const Post = (props) => {
           <div className="d-flex align-items-center">
             <UserThumbnail
               className="mr-4"
-              src={props.post.userPhoto}
+              src={props.post.user.ppUrl}
             ></UserThumbnail>
             <Link
-              to={profilePath + "eiqer"}
+              to={profilePath + props.post.user.nickname}
               className="text-decoration-none text-dark"
             >
               {/* Kullanıcı componenti */}
               <PostTitle className="mb-0" tag="h6">
-                Oğuzhan Şimşek
+                {props.post.user.firstname + " " + props.post.user.lastname}
               </PostTitle>
             </Link>
           </div>
@@ -70,10 +70,12 @@ const Post = (props) => {
         <CardBody>
           <PostText>
             <Link
-              to={profilePath + "eiqer"}
+              to={profilePath + props.post.user.nickname}
               className="text-decoration-none text-dark"
             >
-              <PostUserName>Oğuzhan Şimşek</PostUserName>
+              <PostUserName>
+                {props.post.user.firstname + " " + props.post.user.lastname}
+              </PostUserName>
             </Link>
             {props.post.pText}
           </PostText>

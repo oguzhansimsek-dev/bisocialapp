@@ -24,6 +24,7 @@ const Posts = (props) => {
           ></Post>
         );
       })}
+      {console.log(props.posts)}
     </>
   );
 };
