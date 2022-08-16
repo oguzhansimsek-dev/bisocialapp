@@ -43,6 +43,9 @@ namespace bisocialapp.Controllers
                 //PostLikes tablosundan veri çekiliyor.
                 List<PostLike>? likes = _dbContext.PostLikes.ToList();
 
+                //Users tablosundan postu atan user çekiliyor.
+                List<User> users = _dbContext.Users.ToList();
+
                 if (posts.Count() == 0)
                 {
                     return StatusCode(404, "No post Found");

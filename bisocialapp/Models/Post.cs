@@ -17,9 +17,14 @@ namespace bisocialapp.Models
 
         //Fotoğraflar
         public ICollection<Photo> photos { get; set; }
+
+        //Yorumlar
         public ICollection<Comment> comments { get; set; }
 
         //Beğeniler
         public ICollection<PostLike> likes { get; set; }
+
+        //kullanıcı
+        public User user { get; set; }
     }
 }
