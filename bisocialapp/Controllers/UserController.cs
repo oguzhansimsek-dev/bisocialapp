@@ -76,7 +76,7 @@ namespace bisocialapp.Controllers
             user.biography = "";
             user.ppUrl = "";
             user.genderId = userForRegisterDto.genderId;
-            user.registerDate = DateTime.UtcNow;
+            user.registerDate = DateTime.Now;
 
             CreatePasswordHash(userForRegisterDto.password, out passwordHash, out passwordSalt);
             user.passHash = passwordHash;
@@ -86,7 +86,7 @@ namespace bisocialapp.Controllers
             {
                 if (UserExists(userForRegisterDto.nickname))
                 {
-                    return Ok("Kullanıcı adı daha önce alınmış");
+                    return StatusCode(409, "Kullanıcı adı daha önce alınmış");
                 }
 
                 if (PasswordCheck(userForRegisterDto.password))
@@ -128,7 +128,7 @@ namespace bisocialapp.Controllers
                 }
                 else
                 {
-                    return Ok("User not found");
+                    return StatusCode(404, "User not found");
                 }
             }
             catch (Exception e)

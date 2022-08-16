@@ -13,6 +13,7 @@ namespace bisocialapp.Models
         public int pType { get; set; }
 
         public DateTime createDate { get; set; }
+        public bool isDeleted { get; set; }
 
         //Fotoğraflar
         public ICollection<Photo> photos { get; set; }

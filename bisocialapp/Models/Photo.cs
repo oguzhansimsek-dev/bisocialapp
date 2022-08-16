@@ -11,5 +11,6 @@ namespace bisocialapp.Models
         public string phUrl { get; set; }
         public int postId { get; set; }
         public DateTime loadDate { get; set; }
+        public bool isDeleted { get; set; }
     }
 }

@@ -13,5 +13,7 @@ namespace bisocialapp.Models
         public int postId { get; set; }
 
         public DateTime commentDate { get; set; }
+
+        public bool isDeleted { get; set; }
     }
 }
