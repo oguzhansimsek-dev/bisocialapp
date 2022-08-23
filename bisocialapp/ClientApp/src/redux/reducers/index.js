@@ -12,7 +12,7 @@ import {
   selectMenuItem,
   followModalShow,
 } from "./functionsReducer";
-import { getFollowers } from "./userReducer";
+import { getFollowers, getUserByNickname } from "./userReducer";
 
 const rootReducer = combineReducers({
   friendListReducer,
@@ -28,6 +28,7 @@ const rootReducer = combineReducers({
   followModalShow,
   getFollowers,
   getPostByPostId,
+  getUserByNickname,
 });
 
 export default rootReducer;

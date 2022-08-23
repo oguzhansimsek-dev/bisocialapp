@@ -108,11 +108,11 @@ export const FollowersBtn = styled(CardText)`
   cursor: pointer;
 `;
 
-export const FollowerUsers = styled(ListGroup)`
+export const FollowUsers = styled(ListGroup)`
   max-height: 250px;
   overflow: hidden scroll;
 `;
-export const FollowerUserItem = styled(ListGroupItem)`
+export const FollowUserItem = styled(ListGroupItem)`
   color: var(--palette-text-primary) !important;
   background-color: transparent !important;
   display: flex;

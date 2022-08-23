@@ -9,3 +9,12 @@ export function getFollowers(state = initialState.followers, action) {
       return state;
   }
 }
+
+export function getUserByNickname(state = initialState.user, action) {
+  switch (action.type) {
+    case actionTypes.GET_USER_BY_NICKNAME:
+      return action.payload;
+    default:
+      return state;
+  }
+}

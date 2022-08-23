@@ -55,14 +55,14 @@ const AboutMe = (props) => {
             )}
           </UserAddLineButton>
 
-          <ProfilePhoto src={props.about.userPhoto} />
+          <ProfilePhoto src={props.user.ppUrl} />
           <PostUserName style={{ fontSize: "17px" }}>
-            {props.about.firstname} {props.about.lastname}
+            {props.user.firstname} {props.user.lastname}
           </PostUserName>
           <PostUserName style={{ fontSize: "14px", marginBottom: "10px" }}>
-            @{props.about.username}
+            @{props.user.nickname}
           </PostUserName>
-          <PostText>{props.about.bio}</PostText>
+          <PostText>{props.user.biography}</PostText>
           <div
             style={{
               position: "absolute",
@@ -110,7 +110,6 @@ const AboutMe = (props) => {
 
 function mapStateToProps(state) {
   return {
-    about: state.loginReducer,
     modalShow: state.settingModalShow,
   };
 }

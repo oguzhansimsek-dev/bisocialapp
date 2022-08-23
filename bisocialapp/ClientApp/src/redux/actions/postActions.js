@@ -36,3 +36,13 @@ export function getPostByPostId(id) {
       .then((result) => dispatch(getPostDetailSuccess(result[0])));
   };
 }
+
+export function getPostByUserId(userId) {
+  return async function (dispatch) {
+    let url = "https://localhost:7271/api/post/getpostbyuserid/" + userId;
+
+    return await fetch(url)
+      .then((response) => response.json())
+      .then((result) => dispatch(getPostsSuccess(result)));
+  };
+}

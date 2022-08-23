@@ -76,11 +76,33 @@ namespace bisocialapp.Controllers
                 //PostLikes tablosundan veri çekiliyor.
                 List<PostLike>? likes = _dbContext.PostLikes.ToList();
 
+                //Users tablosundan postu atan user çekiliyor.
+                List<User> users = _dbContext.Users.ToList();
+
                 return Ok(post);
             }
             catch (Exception)
             {
                 return StatusCode(500, "An error has occurred ");
+            }
+        }
+
+        [HttpGet("GetPostByUserId/{userId}")]
+        public IActionResult GetPostByUserId([FromRoute] int userId)
+        {
+            try
+            {
+                List<Post> posts = _dbContext.Posts.Where(p => p.userId == userId).ToList();
+                List<Comment> comments = _dbContext.Comments.ToList();
+                List<PostLike> likes = _dbContext.PostLikes.ToList();
+                List<User> users = _dbContext.Users.ToList();
+                List<Photo> photos = _dbContext.Photos.ToList();
+
+                return Ok(posts);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
             }
         }
 

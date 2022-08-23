@@ -42,7 +42,7 @@ const PostDetailModal = (props) => {
         <Modal.Header closeButton>Başlık</Modal.Header>
         <Container>
           <Row>
-            <Col md="7" style={{ minHeight: "500px" }}>
+            <Col md="7">
               <Carousel autoPlay={false} showThumbs={false} swipeable={true}>
                 {props.post.photos == null
                   ? ""
@@ -56,7 +56,7 @@ const PostDetailModal = (props) => {
               </Carousel>
             </Col>
             {/** Yorum Alanı */}
-            <Col md="5" style={{ minHeight: "500px" }}>
+            <Col md="5">
               <PostText>
                 <Link
                   to={profilePath + "eiqer"}
@@ -84,7 +84,7 @@ const PostDetailModal = (props) => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>Başlık</Modal.Header>
+        <Modal.Header closeButton>Oğuzhan Şimşek</Modal.Header>
         <Container>
           <Row>
             <Col md="12" style={{ minHeight: "500px" }}>
@@ -93,7 +93,7 @@ const PostDetailModal = (props) => {
                   to={profilePath + "eiqer"}
                   className="text-decoration-none text-dark"
                 >
-                  <PostUserName>Oğuzhan Şimşek</PostUserName>
+                  <PostUserName>Oğuzhan</PostUserName>
                 </Link>
                 {props.post.pText}
               </PostText>

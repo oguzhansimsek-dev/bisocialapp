@@ -53,8 +53,8 @@ function App(props) {
       )}
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/bi/:username" element={<Profile />} />
-        <Route path="/me/:userName" element={<Profile />} />
+        <Route path="/bi/:nickname" element={<Profile />} />
+        <Route path="/me/:nickname" element={<Profile />} />
         <Route path="" element={<Profile />} />
         <Route path="/direct" element={<Messages />} />
         <Route path="/direct:id" element={<Message />} />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Modal } from "react-bootstrap";
@@ -10,9 +10,11 @@ import {
   ListGroupItem,
   Button,
 } from "reactstrap";
-import { FollowBtn, FollowerUsers, FollowerUserItem } from "./ProfileElements";
+import { FollowBtn, FollowUsers, FollowUserItem } from "./ProfileElements";
 import "./style.scss";
 import { UserThumbnail } from "../root/RootElements";
+
+import * as userActions from "../../redux/actions/userActions";
 
 const FollowModal = (props) => {
   const [follow, setFollow] = useState(true);
@@ -28,8 +30,8 @@ const FollowModal = (props) => {
 
   const getUsers = (u) => {
     return (
-      <FollowerUserItem id={u.userId} key={u.userId}>
-        <UserThumbnail src={u.userImg}></UserThumbnail>
+      <FollowUserItem id={u.id} key={u.id}>
+        <UserThumbnail src={u.ppUrl}></UserThumbnail>
         {u.firstname} {u.lastname}
         <FollowBtn
           onClick={() => {
@@ -38,7 +40,7 @@ const FollowModal = (props) => {
         >
           {follow ? "Takip ediliyor" : "Takip Et"}
         </FollowBtn>
-      </FollowerUserItem>
+      </FollowUserItem>
     );
   };
 
@@ -75,11 +77,13 @@ const FollowModal = (props) => {
 
         <Modal.Body>
           {/* Takipçi Listesi */}
-          <FollowerUsers>
+          <FollowUsers>
             {props.followers.map((u) => {
               return getUsers(u);
             })}
-          </FollowerUsers>
+          </FollowUsers>
+
+          {/* Takip Edilenler */}
         </Modal.Body>
       </Modal>
     </>

@@ -3,6 +3,8 @@ export default {
   login: {},
   posts: [],
   post: {},
+  user: {},
+  followers: [],
 
   createdPost: {
     postId: 1,
@@ -77,31 +79,4 @@ export default {
     },
   ],
   //postModal: { p: {}, isOpened: false },
-
-  followers: [
-    {
-      userId: 3,
-      username: "kayra_x",
-      firstname: "Kayra",
-      lastname: "Yöney",
-      userImg:
-        "https://i.sdacdn.com/haber/2020/08/21/yetiskin-film-yildizi-johnny-sins-en-cok-13529148_3073_m.jpg",
-    },
-    {
-      userId: 7,
-      username: "mehmetyzci",
-      firstname: "Mehmet",
-      lastname: "Yazıcı",
-      userImg:
-        "https://www.cumhuriyet.com.tr/Archive/2016/12/16/646477_cover.jpeg",
-    },
-    {
-      userId: 2,
-      username: "sikismakinesi",
-      firstname: "Göktuğ",
-      lastname: "Kocauşu",
-      userImg:
-        "https://img.piri.net/mnresize/840/-/resim/imagecrop/2017/09/14/03/12/resized_c4a0c-c1ef14972f69dfe8a6149e09207d98af9d36d8bb.jpg",
-    },
-  ],
 };

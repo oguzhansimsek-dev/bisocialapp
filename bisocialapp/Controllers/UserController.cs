@@ -124,7 +124,19 @@ namespace bisocialapp.Controllers
                         user.passSalt
                     );
 
-                    return Ok(result);
+                    LoggedUser my = new LoggedUser();
+
+                    my.uId = user.uId;
+                    my.nickname = user.nickname;
+                    my.firstname = user.firstname;
+                    my.lastname = user.lastname;
+                    my.email = user.email;
+                    my.biography = user.biography;
+                    my.ppUrl = user.ppUrl;
+                    my.genderId = user.genderId;
+                    my.registerDate = user.registerDate;
+
+                    return Ok(my);
                 }
                 else
                 {
@@ -190,6 +202,80 @@ namespace bisocialapp.Controllers
 
             var users = _dbContext.Users.ToList();
             return Ok(users);
+        }
+
+        [HttpGet("GetFollower/{id}")]
+        public IActionResult GetFollower([FromRoute] int id)
+        {
+            List<Follower> followers = new List<Follower>();
+
+            try
+            {
+                List<Follow> datas = _dbContext.UserFollow.Where(f => f.followedId == id).ToList();
+
+                foreach (Follow data in datas)
+                {
+                    Follower follower = new Follower();
+
+                    User user = GetUserById(data.followerId);
+
+                    // followers.Add(follower);
+                    follower.id = user.uId;
+                    follower.nickname = user.nickname;
+                    follower.firstname = user.firstname;
+                    follower.lastname = user.lastname;
+                    follower.ppUrl = user.ppUrl;
+                    follower.followedDate = data.followedDate;
+
+                    followers.Add(follower);
+                }
+
+                return Ok(followers);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpGet("GetFollowed/{id}")]
+        public IActionResult GetFollowed([FromRoute] int id)
+        {
+            List<Followed> followedby = new List<Followed>();
+
+            try
+            {
+                List<Follow> datas = _dbContext.UserFollow.Where(f => f.followerId == id).ToList();
+
+                foreach (Follow data in datas)
+                {
+                    Followed followed = new Followed();
+
+                    User user = GetUserById(data.followedId);
+
+                    // followers.Add(follower);
+                    followed.id = user.uId;
+                    followed.nickname = user.nickname;
+                    followed.firstname = user.firstname;
+                    followed.lastname = user.lastname;
+                    followed.ppUrl = user.ppUrl;
+                    followed.followedDate = data.followedDate;
+
+                    followedby.Add(followed);
+                }
+
+                return Ok(followedby);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        User GetUserById(int id)
+        {
+            User user = _dbContext.Users.Where(u => u.uId == id).FirstOrDefault();
+            return user;
         }
 
         private void CreatePasswordHash(
