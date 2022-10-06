@@ -17,6 +17,7 @@ import { UserThumbnail } from "../root/RootElements";
 import * as userActions from "../../redux/actions/userActions";
 
 const FollowModal = (props) => {
+  const [followTab, setFollowTab] = useState(1);
   const [follow, setFollow] = useState(true);
   const [hrMargin, setHrMargin] = useState("0%");
 
@@ -58,6 +59,7 @@ const FollowModal = (props) => {
             <ListGroupItem
               onClick={() => {
                 setHrMargin("0%");
+                setFollowTab(1);
               }}
               className={hrMargin === "0%" ? "text-active" : "text-pasif"}
             >
@@ -66,6 +68,7 @@ const FollowModal = (props) => {
             <ListGroupItem
               onClick={() => {
                 setHrMargin("100%");
+                setFollowTab(2);
               }}
               className={hrMargin === "100%" ? "text-active" : "text-pasif"}
             >
@@ -78,9 +81,11 @@ const FollowModal = (props) => {
         <Modal.Body>
           {/* Takipçi Listesi */}
           <FollowUsers>
-            {props.followers.map((u) => {
-              return getUsers(u);
-            })}
+            {followTab === 1
+              ? props.followers.map((u) => {
+                  return getUsers(u);
+                })
+              : ""}
           </FollowUsers>
 
           {/* Takip Edilenler */}

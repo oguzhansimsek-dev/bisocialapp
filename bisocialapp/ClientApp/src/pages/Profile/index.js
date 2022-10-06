@@ -33,7 +33,7 @@ const Profil = (props) => {
     window.scrollTo(0, 0);
     getUser(params.nickname);
     getPosts(props.user.uId);
-    props.actions.getFollowers(params.uId);
+    props.actions.getFollowers(props.user.uId);
   }, []);
 
   return (
