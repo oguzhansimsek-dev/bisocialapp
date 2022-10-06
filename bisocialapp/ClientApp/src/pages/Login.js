@@ -35,15 +35,7 @@ const Login = ({ token }) => {
         <Row className="d-flex justify-content-center">
           {/* <Col>B! SOCIAL tanıdıklarınla iletişim kurmanı sağlar.</Col> */}
           <Col md={4} lg={4} className="d-flex justify-content-end">
-            <div
-              style={{
-                width: "300px",
-                height: "500px",
-                backgroundColor: "white",
-              }}
-            >
-              BURAYA MOBİL VERSİYON RESİMLERİ GELECEK
-            </div>
+            <img src="../static/media/screenshots/cbc7174b4f05.png" />
           </Col>
           <Col md={4} lg={4}>
             <SigninCard>
