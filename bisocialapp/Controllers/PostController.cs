@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using bisocialapp.Data;
+using bisocialapp.Dtos;
 using bisocialapp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -120,6 +121,42 @@ namespace bisocialapp.Controllers
             }
         }
 
+        [HttpPost("SetLike")]
+        public IActionResult SetLike([FromBody] PostForSetLikeDto like)
+        {
+            PostLike newlike = new PostLike();
+            try
+            {
+                var result = LikeExist(like);
+
+                if (result == true)
+                {
+                    PostLike currentLike = _dbContext.PostLikes.FirstOrDefault(
+                        l => l.userId == like.userId && l.postId == like.postId
+                    );
+
+                    _dbContext.Entry(currentLike).State = EntityState.Deleted;
+                    _dbContext.SaveChanges();
+
+                    return Ok("UnLiked");
+                }
+                else
+                {
+                    newlike.userId = like.userId;
+                    newlike.postId = like.postId;
+                    newlike.likeDate = DateTime.Now;
+
+                    _dbContext.PostLikes.Add(newlike);
+                    _dbContext.SaveChanges();
+                    return Ok("Liked");
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
         [HttpDelete("DeletePost/{postId}")]
         public IActionResult DeletePost([FromRoute] int postId)
         {
@@ -165,6 +202,22 @@ namespace bisocialapp.Controllers
             catch (Exception e)
             {
                 return StatusCode(500, e.Message);
+            }
+        }
+
+        private bool LikeExist(PostForSetLikeDto like)
+        {
+            if (
+                _dbContext.PostLikes.FirstOrDefault(
+                    l => l.userId == like.userId && l.postId == like.postId
+                ) != null
+            )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
