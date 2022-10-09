@@ -124,19 +124,24 @@ namespace bisocialapp.Controllers
                         user.passSalt
                     );
 
-                    LoggedUser my = new LoggedUser();
+                    if(result == true){
+                        LoggedUser my = new LoggedUser();
 
-                    my.uId = user.uId;
-                    my.nickname = user.nickname;
-                    my.firstname = user.firstname;
-                    my.lastname = user.lastname;
-                    my.email = user.email;
-                    my.biography = user.biography;
-                    my.ppUrl = user.ppUrl;
-                    my.genderId = user.genderId;
-                    my.registerDate = user.registerDate;
+                        my.uId = user.uId;
+                        my.nickname = user.nickname;
+                        my.firstname = user.firstname;
+                        my.lastname = user.lastname;
+                        my.email = user.email;
+                        my.biography = user.biography;
+                        my.ppUrl = user.ppUrl;
+                        my.genderId = user.genderId;
+                        my.registerDate = user.registerDate;
+                        
+                        return Ok(my);
+                    }else{
+                        return StatusCode(500, "Password incorrect");
+                    }
 
-                    return Ok(my);
                 }
                 else
                 {

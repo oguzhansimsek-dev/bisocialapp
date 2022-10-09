@@ -1,4 +1,5 @@
 {
+  "proxy": "https://localhost:7271",
   "name": "social-media-web-app",
   "version": "0.1.0",
   "private": true,

@@ -8,14 +8,23 @@ import Spinner from "react-bootstrap/Spinner";
 
 const SignUpModal = (props) => {
   const [errors, setErrors] = useState({});
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ genderId: 1 });
 
   const [userInputLoading, setUserInputLoading] = useState(false);
 
   function handleSubmit(event) {
-    console.log("Data sended..");
-    props.onHide();
     event.preventDefault();
+    props.onHide();
+
+    fetch("https://localhost:7271/api/user/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).then(() => {
+      console.log("Data Sended");
+    });
+
+    console.log(data);
   }
 
   function handleChange(event) {
@@ -31,14 +40,13 @@ const SignUpModal = (props) => {
 
     /* console.log(name + ": " + value); */
   }
-  console.log(data);
 
   useEffect(() => {
     setUserInputLoading(true);
 
-    const timeOutId = setTimeout(() => checkUsername(data.username), 500);
+    const timeOutId = setTimeout(() => checkUsername(data.nickname), 500);
     return () => clearTimeout(timeOutId);
-  }, [data.username]);
+  }, [data.nickname]);
 
   function checkEmail(email) {
     const condition = ["@ogrenci.bilecik.edu.tr"];
@@ -48,12 +56,12 @@ const SignUpModal = (props) => {
     checkEmail(data.email);
   }, [data.email]);
 
-  function checkUsername(username) {
+  function checkUsername(nickname) {
     //Backend'e istek
     const usernames = ["eiqer", "sego123"];
 
-    if (usernames.includes(username)) {
-      setErrors((previousErrors) => ({ ...previousErrors, username: true }));
+    if (usernames.includes(nickname)) {
+      setErrors((previousErrors) => ({ ...previousErrors, nickname: true }));
     }
     setUserInputLoading(false);
   }
@@ -77,11 +85,11 @@ const SignUpModal = (props) => {
                 <Col sm="12" md="12" style={{ position: "relative" }}>
                   <Input
                     autoComplete="off"
-                    name="username"
+                    name="nickname"
                     label="User name"
                     onChange={handleChange}
                     placeholder="Kullanıcı adınız"
-                    invalid={errors.username}
+                    invalid={errors.nickname}
                   />
                   {userInputLoading && (
                     <Spinner

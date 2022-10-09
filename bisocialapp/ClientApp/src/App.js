@@ -39,6 +39,16 @@ function App(props) {
     }
   };
 
+  const GetNav = (width, props) => {
+    if (window.location.pathname != "/login") {
+      if (width < 1000) {
+        return <MobileNav logo={logo} user={props.about} />;
+      } else {
+        return <NavBar logo={logo} user={props.about} />;
+      }
+    }
+  };
+
   React.useEffect(() => {
     // props.actions.getLoginUser();
     logoSetting();
@@ -46,11 +56,7 @@ function App(props) {
 
   return (
     <>
-      {window.innerWidth < 1000 ? (
-        <MobileNav logo={logo} user={props.about} />
-      ) : (
-        <NavBar logo={logo} user={props.about} />
-      )}
+      {GetNav(window.innerWidth, props)}
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/bi/:nickname" element={<Profile />} />

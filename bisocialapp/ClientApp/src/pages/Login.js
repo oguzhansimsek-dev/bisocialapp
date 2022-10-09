@@ -32,10 +32,13 @@ const Login = ({ token }) => {
     <div>
       <Container style={{ paddingTop: "90px" }}>
         <SignUpModal show={modalShow} onHide={() => setModalShow(false)} />
-        <Row className="d-flex justify-content-center">
+        <Row className="d-flex justify-content-center align-items-center">
           {/* <Col>B! SOCIAL tanıdıklarınla iletişim kurmanı sağlar.</Col> */}
           <Col md={4} lg={4} className="d-flex justify-content-end">
-            <img src="../static/media/screenshots/cbc7174b4f05.png" />
+            <img
+              src="https://www.instagram.com/static/images/homepage/phones/home-phones-2x.png/cbc7174b4f05.png"
+              width="450px"
+            />
           </Col>
           <Col md={4} lg={4}>
             <SigninCard>
