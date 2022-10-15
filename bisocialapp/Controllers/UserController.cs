@@ -124,7 +124,8 @@ namespace bisocialapp.Controllers
                         user.passSalt
                     );
 
-                    if(result == true){
+                    if (result == true)
+                    {
                         LoggedUser my = new LoggedUser();
 
                         my.uId = user.uId;
@@ -136,12 +137,13 @@ namespace bisocialapp.Controllers
                         my.ppUrl = user.ppUrl;
                         my.genderId = user.genderId;
                         my.registerDate = user.registerDate;
-                        
+
                         return Ok(my);
-                    }else{
+                    }
+                    else
+                    {
                         return StatusCode(500, "Password incorrect");
                     }
-
                 }
                 else
                 {

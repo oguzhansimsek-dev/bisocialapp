@@ -23,17 +23,22 @@ const Profil = (props) => {
 
   async function getUser(nickname) {
     await props.actions.getUser(nickname);
+
+    getPosts(props.user.uId);
+    getFollowers(props.user.uId);
   }
 
   async function getPosts(uId) {
     await props.actions.getPostByUserId(props.user.uId);
   }
 
+  async function getFollowers(uId) {
+    await props.actions.getFollowers(uId);
+  }
+
   useEffect(() => {
     window.scrollTo(0, 0);
     getUser(params.nickname);
-    getPosts(props.user.uId);
-    props.actions.getFollowers(props.user.uId);
   }, []);
 
   return (
