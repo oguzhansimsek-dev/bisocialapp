@@ -19,7 +19,5 @@ namespace bisocialapp.Models
         public string ppUrl { get; set; }
         public int genderId { get; set; }
         public DateTime registerDate { get; set; }
-
-        // public ICollection<Post> posts { get; set; }
     }
 }

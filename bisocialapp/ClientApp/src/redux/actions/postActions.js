@@ -20,7 +20,6 @@ export function getPosts() {
   return function (dispatch) {
     //let url = "http://localhost:3000/posts/";
     let url = "https://localhost:7271/api/post/getposts";
-    // let url = "http://localhost:5082/api/post/getposts";
     return fetch(url)
       .then((response) => response.json())
       .then((result) => dispatch(getPostsSuccess(result)));

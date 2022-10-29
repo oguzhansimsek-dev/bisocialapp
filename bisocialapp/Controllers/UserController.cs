@@ -201,14 +201,14 @@ namespace bisocialapp.Controllers
                 }
                 _dbContext.Entry(user).State = EntityState.Deleted;
                 _dbContext.SaveChanges();
+
+                //var users = _dbContext.Users.ToList();
+                return Ok(user.firstname + " " + user.lastname + " User successfully deleted");
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return StatusCode(500, "An error has occurred");
             }
-
-            var users = _dbContext.Users.ToList();
-            return Ok(users);
         }
 
         [HttpGet("GetFollower/{id}")]
